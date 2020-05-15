@@ -1,4 +1,4 @@
-#include <iostream>
+ï»¿#include <iostream>
 #include "parser.h"
 
 using namespace std;
@@ -6,7 +6,7 @@ using namespace std;
 int main(int argc, char* argv[])
 {
 	setlocale(LC_ALL, "Russian");
-	cout << "Ââåäèòå âûðàæåíèå:" << endl;
+	cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð²Ñ‹Ñ€Ð°Ð¶ÐµÐ½Ð¸Ðµ:" << endl;
 	string str;
 	getline(cin, str);
 	try

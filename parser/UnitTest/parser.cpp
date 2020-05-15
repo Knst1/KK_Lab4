@@ -1,4 +1,4 @@
-#include "pch.h"
+ï»¿#include "pch.h"
 #include "../parser/parser.h"
 #include <algorithm>
 #include <fstream>
@@ -93,7 +93,7 @@ bool Parser::parse()
 	{
 		if (!current.first)
 		{
-			cout << endl << "ÎØÈÁÊÀ: Îáíàðóæåí íåäîïóñòèìûé ñèìâîë " << "\"" << current.second << "\"." << endl;
+			cout << endl << "ÐžÐ¨Ð˜Ð‘ÐšÐ: ÐžÐ±Ð½Ð°Ñ€ÑƒÐ¶ÐµÐ½ Ð½ÐµÐ´Ð¾Ð¿ÑƒÑÑ‚Ð¸Ð¼Ñ‹Ð¹ ÑÐ¸Ð¼Ð²Ð¾Ð» " << "\"" << current.second << "\"." << endl;
 			ans = false;
 			current = next_terminal();
 			continue;
@@ -101,26 +101,26 @@ bool Parser::parse()
 		switch (matrix[type_of_token[st[st.size() - 1]]][type_of_token[current.second]])
 		{
 		case '<':
-		case '=': // Ïåðåíîñ
+		case '=': // ÐŸÐµÑ€ÐµÐ½Ð¾Ñ
 			if (prnts && type_of_token[st[st.size() - 1]] == LP)
 			{
-				cout << endl << "ÎØÈÁÊÀ: Ìåæäó îòêðûâàþùåé è çàêðûâàþùåé ñêîáêàìè îòñóòñòâóåò àðèôìåòè÷åñêîå âûðàæåíèå" << endl;
+				cout << endl << "ÐžÐ¨Ð˜Ð‘ÐšÐ: ÐœÐµÐ¶Ð´Ñƒ Ð¾Ñ‚ÐºÑ€Ñ‹Ð²Ð°ÑŽÑ‰ÐµÐ¹ Ð¸ Ð·Ð°ÐºÑ€Ñ‹Ð²Ð°ÑŽÑ‰ÐµÐ¹ ÑÐºÐ¾Ð±ÐºÐ°Ð¼Ð¸ Ð¾Ñ‚ÑÑƒÑ‚ÑÑ‚Ð²ÑƒÐµÑ‚ Ð°Ñ€Ð¸Ñ„Ð¼ÐµÑ‚Ð¸Ñ‡ÐµÑÐºÐ¾Ðµ Ð²Ñ‹Ñ€Ð°Ð¶ÐµÐ½Ð¸Ðµ" << endl;
 				ans = false;
 			}
 			if (oper && (type_of_token[st[st.size() - 1]] == LOGIC || type_of_token[st[st.size() - 1]] == SUM || type_of_token[st[st.size() - 1]] == MULT))
 			{
-				cout << endl << "ÎØÈÁÊÀ: Áèíàðíûå îïåðàòîðû çàïèñàíû ïîäðÿä" << endl;
+				cout << endl << "ÐžÐ¨Ð˜Ð‘ÐšÐ: Ð‘Ð¸Ð½Ð°Ñ€Ð½Ñ‹Ðµ Ð¾Ð¿ÐµÑ€Ð°Ñ‚Ð¾Ñ€Ñ‹ Ð·Ð°Ð¿Ð¸ÑÐ°Ð½Ñ‹ Ð¿Ð¾Ð´Ñ€ÑÐ´" << endl;
 				ans = false;
 			}
 			st.push_back(current.second);
 			current = next_terminal();
 			print_sate(false);
 			break;
-		case '>': // Ñâ¸ðòêà
+		case '>': // Ð¡Ð²Ñ‘Ñ€Ñ‚ÐºÐ°
 			prnts = false;
 			if (oper && (type_of_token[st[st.size() - 1]] == LOGIC || type_of_token[st[st.size() - 1]] == SUM || type_of_token[st[st.size() - 1]] == MULT))
 			{
-				cout << endl << "ÎØÈÁÊÀ: Áèíàðíûå îïåðàòîðû çàïèñàíû ïîäðÿä" << endl;
+				cout << endl << "ÐžÐ¨Ð˜Ð‘ÐšÐ: Ð‘Ð¸Ð½Ð°Ñ€Ð½Ñ‹Ðµ Ð¾Ð¿ÐµÑ€Ð°Ñ‚Ð¾Ñ€Ñ‹ Ð·Ð°Ð¿Ð¸ÑÐ°Ð½Ñ‹ Ð¿Ð¾Ð´Ñ€ÑÐ´" << endl;
 				ans = false;
 			}
 			do {
@@ -133,56 +133,56 @@ bool Parser::parse()
 			break;
 		case '0':
 			if (tmp.size() == 1) {
-				cout << endl << "ÎØÈÁÊÀ: Ñòðîêà ïóñòà" << endl;
+				cout << endl << "ÐžÐ¨Ð˜Ð‘ÐšÐ: Ð¡Ñ‚Ñ€Ð¾ÐºÐ° Ð¿ÑƒÑÑ‚Ð°" << endl;
 				ans = false;
 			}
 			else
-				cout << endl << "Äîïóñê" << endl;
+				cout << endl << "Ð”Ð¾Ð¿ÑƒÑÐº" << endl;
 			current = next_terminal();
 
 			break;
 		case '1':
-			cout << endl << "ÎØÈÁÊÀ: Ìåæäó ôàêòîðàìè îòñóòñòâóåò îïåðàòîð" << endl;
+			cout << endl << "ÐžÐ¨Ð˜Ð‘ÐšÐ: ÐœÐµÐ¶Ð´Ñƒ Ñ„Ð°ÐºÑ‚Ð¾Ñ€Ð°Ð¼Ð¸ Ð¾Ñ‚ÑÑƒÑ‚ÑÑ‚Ð²ÑƒÐµÑ‚ Ð¾Ð¿ÐµÑ€Ð°Ñ‚Ð¾Ñ€" << endl;
 			current = next_terminal();
 			ans = false;
 			break;
 		case '2':
-			cout << endl << "ÎØÈÁÊÀ: Â âûðàæåíèè áîëüøå îäíîãî ëîãè÷åñêîãî îïåðàòîðà" << endl;
+			cout << endl << "ÐžÐ¨Ð˜Ð‘ÐšÐ: Ð’ Ð²Ñ‹Ñ€Ð°Ð¶ÐµÐ½Ð¸Ð¸ Ð±Ð¾Ð»ÑŒÑˆÐµ Ð¾Ð´Ð½Ð¾Ð³Ð¾ Ð»Ð¾Ð³Ð¸Ñ‡ÐµÑÐºÐ¾Ð³Ð¾ Ð¾Ð¿ÐµÑ€Ð°Ñ‚Ð¾Ñ€Ð°" << endl;
 			current = next_terminal();
 			ans = false;
 			break;
 		case '3':
-			cout << endl << "ÎØÈÁÊÀ: Ïîñëå ëîãè÷åñêîãî îïåðàòîðà íåäîñòà¸ò îòêðûâàþùåé ñêîáêè" << endl;
+			cout << endl << "ÐžÐ¨Ð˜Ð‘ÐšÐ: ÐŸÐ¾ÑÐ»Ðµ Ð»Ð¾Ð³Ð¸Ñ‡ÐµÑÐºÐ¾Ð³Ð¾ Ð¾Ð¿ÐµÑ€Ð°Ñ‚Ð¾Ñ€Ð° Ð½ÐµÐ´Ð¾ÑÑ‚Ð°Ñ‘Ñ‚ Ð¾Ñ‚ÐºÑ€Ñ‹Ð²Ð°ÑŽÑ‰ÐµÐ¹ ÑÐºÐ¾Ð±ÐºÐ¸" << endl;
 			current = next_terminal();
 			ans = false;
 			break;
 		case '4':
-			cout << endl << "ÎØÈÁÊÀ: Ïîñëå àðèôìåòè÷åñêîãî âûðàæåíèÿ ïåðåä îòêðûâàþùåé ñêîáêîé îòñóòñòâóåò áèíàðíûé îïåðàòîð" << endl;
+			cout << endl << "ÐžÐ¨Ð˜Ð‘ÐšÐ: ÐŸÐ¾ÑÐ»Ðµ Ð°Ñ€Ð¸Ñ„Ð¼ÐµÑ‚Ð¸Ñ‡ÐµÑÐºÐ¾Ð³Ð¾ Ð²Ñ‹Ñ€Ð°Ð¶ÐµÐ½Ð¸Ñ Ð¿ÐµÑ€ÐµÐ´ Ð¾Ñ‚ÐºÑ€Ñ‹Ð²Ð°ÑŽÑ‰ÐµÐ¹ ÑÐºÐ¾Ð±ÐºÐ¾Ð¹ Ð¾Ñ‚ÑÑƒÑ‚ÑÑ‚Ð²ÑƒÐµÑ‚ Ð±Ð¸Ð½Ð°Ñ€Ð½Ñ‹Ð¹ Ð¾Ð¿ÐµÑ€Ð°Ñ‚Ð¾Ñ€" << endl;
 			current = next_terminal();
 			ans = false;
 			break;
 		case '5':
-			cout << endl << "ÎØÈÁÊÀ: Ïîñëå çàêðûâàþùåé ñêîáêè ïåðåä àðèôìåòè÷åñêèì âûðàæåíèåì îòñóòñòâóåò áèíàðíûé îïåðàòîð" << endl;
+			cout << endl << "ÐžÐ¨Ð˜Ð‘ÐšÐ: ÐŸÐ¾ÑÐ»Ðµ Ð·Ð°ÐºÑ€Ñ‹Ð²Ð°ÑŽÑ‰ÐµÐ¹ ÑÐºÐ¾Ð±ÐºÐ¸ Ð¿ÐµÑ€ÐµÐ´ Ð°Ñ€Ð¸Ñ„Ð¼ÐµÑ‚Ð¸Ñ‡ÐµÑÐºÐ¸Ð¼ Ð²Ñ‹Ñ€Ð°Ð¶ÐµÐ½Ð¸ÐµÐ¼ Ð¾Ñ‚ÑÑƒÑ‚ÑÑ‚Ð²ÑƒÐµÑ‚ Ð±Ð¸Ð½Ð°Ñ€Ð½Ñ‹Ð¹ Ð¾Ð¿ÐµÑ€Ð°Ñ‚Ð¾Ñ€" << endl;
 			current = next_terminal();
 			ans = false;
 			break;
 		case '6':
-			cout << endl << "ÎØÈÁÊÀ: Îòñóòñòâóåò çàêðûâàþùàÿ ñêîáêà" << endl;
+			cout << endl << "ÐžÐ¨Ð˜Ð‘ÐšÐ: ÐžÑ‚ÑÑƒÑ‚ÑÑ‚Ð²ÑƒÐµÑ‚ Ð·Ð°ÐºÑ€Ñ‹Ð²Ð°ÑŽÑ‰Ð°Ñ ÑÐºÐ¾Ð±ÐºÐ°" << endl;
 			current = next_terminal();
 			ans = false;
 			break;
 		case '7':
-			cout << endl << "ÎØÈÁÊÀ: Ìåæäó çàêðûâàþùåé è îòêðûâàþùåé ñêîáêàìè îòñóòñòâóåò áèíàðíûé îïåðàòîð" << endl;
+			cout << endl << "ÐžÐ¨Ð˜Ð‘ÐšÐ: ÐœÐµÐ¶Ð´Ñƒ Ð·Ð°ÐºÑ€Ñ‹Ð²Ð°ÑŽÑ‰ÐµÐ¹ Ð¸ Ð¾Ñ‚ÐºÑ€Ñ‹Ð²Ð°ÑŽÑ‰ÐµÐ¹ ÑÐºÐ¾Ð±ÐºÐ°Ð¼Ð¸ Ð¾Ñ‚ÑÑƒÑ‚ÑÑ‚Ð²ÑƒÐµÑ‚ Ð±Ð¸Ð½Ð°Ñ€Ð½Ñ‹Ð¹ Ð¾Ð¿ÐµÑ€Ð°Ñ‚Ð¾Ñ€" << endl;
 			current = next_terminal();
 			ans = false;
 			break;
 		case '8':
-			cout << endl << "ÎØÈÁÊÀ: Îòñóòñòâóåò îòêðûâàþùàÿ" << endl;
+			cout << endl << "ÐžÐ¨Ð˜Ð‘ÐšÐ: ÐžÑ‚ÑÑƒÑ‚ÑÑ‚Ð²ÑƒÐµÑ‚ Ð¾Ñ‚ÐºÑ€Ñ‹Ð²Ð°ÑŽÑ‰Ð°Ñ" << endl;
 			current = next_terminal();
 			ans = false;
 			break;
 		default:
-			cout << endl << "ÎØÈÁÊÀ: Òèï îøèáêè íåèçâåñòåí" << endl;
+			cout << endl << "ÐžÐ¨Ð˜Ð‘ÐšÐ: Ð¢Ð¸Ð¿ Ð¾ÑˆÐ¸Ð±ÐºÐ¸ Ð½ÐµÐ¸Ð·Ð²ÐµÑÑ‚ÐµÐ½" << endl;
 			current = next_terminal();
 			ans = false;
 			break;
@@ -248,7 +248,7 @@ void Parser::make_graph()
 {
 	ofstream tree_dot("tree.dot");
 	if (!tree_dot.is_open())
-		throw runtime_error("Íå óäàëîñü îòêðûòü ôàéë tree.dot äëÿ çàïèñè\n");
+		throw runtime_error("ÐÐµ ÑƒÐ´Ð°Ð»Ð¾ÑÑŒ Ð¾Ñ‚ÐºÑ€Ñ‹Ñ‚ÑŒ Ñ„Ð°Ð¹Ð» tree.dot Ð´Ð»Ñ Ð·Ð°Ð¿Ð¸ÑÐ¸\n");
 	tree_dot << "digraph G{" << endl << "node[shape=rectangle style=filled fillcolor=white fontsize=12];" << endl;
 	for (Node* node : tree)
 	{
@@ -270,7 +270,7 @@ void Parser::handle()
 	cout << endl;
 	if (ok)
 	{
-		cout << "Ïîñòôèêñíàÿ çàïèñü:" << endl;
+		cout << "ÐŸÐ¾ÑÑ‚Ñ„Ð¸ÐºÑÐ½Ð°Ñ Ð·Ð°Ð¿Ð¸ÑÑŒ:" << endl;
 		for (string x : postf)
 			if (type_of_token[x] != LP && type_of_token[x] != RP)
 				cout << x << " ";

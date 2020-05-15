@@ -1,4 +1,4 @@
-#pragma once
+п»ї#pragma once
 #include <map>
 #include <set>
 #include <vector>
@@ -25,7 +25,7 @@ public:
 };
 
 class Parser {
-	// Матрица отношений операторного предшествования
+	// РњР°С‚СЂРёС†Р° РѕС‚РЅРѕС€РµРЅРёР№ РѕРїРµСЂР°С‚РѕСЂРЅРѕРіРѕ РїСЂРµРґС€РµСЃС‚РІРѕРІР°РЅРёСЏ
 	const std::vector<std::vector<char>> matrix = std::vector<std::vector<char>>({
 		//	   |					   atm  sum  mul  log  lp   rp   end
 		// ----+----------------------------------------------------------
@@ -55,9 +55,9 @@ class Parser {
 			std::pair<std::string, Terminal>(marker, END) });
 	const std::vector<std::string> terminals = std::vector<std::string>({
 		"identifier", "const", "<=", "<>", "<", ">=", ">", "=", "+", "-", "*", "/", "(", ")", marker});
-	// Входная строка
+	// Р’С…РѕРґРЅР°СЏ СЃС‚СЂРѕРєР°
 	std::string text;
-	// Стек разбора
+	// РЎС‚РµРє СЂР°Р·Р±РѕСЂР°
 	std::vector<std::string> st;
 	bool prnts;
 	bool oper;
